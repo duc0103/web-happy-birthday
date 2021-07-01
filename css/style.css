@@ -1,3 +1,6 @@
+.group{
+  display: none;
+}
 .content {
     position: relative;
     z-index: 3;

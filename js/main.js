@@ -1,5 +1,6 @@
 
 $(document).ready(function() {
+  
     // process bar
     setTimeout(function() {
         firstQuestion();
@@ -17,9 +18,12 @@ function init(){
     $('#desc').text(CONFIG.desc)
     $('#yes').text(CONFIG.btnYes)
     $('#no').text(CONFIG.btnNo)
+    $('.group').hide();
 }
 
 function firstQuestion(){
+    var audioq = new Audio('sound/sound.waw');
+    audioq.play();
     $('.content').hide();
     $('.imageDim').hide();
     Swal.fire({
@@ -32,6 +36,8 @@ function firstQuestion(){
         imageAlt: 'Custom image',
         confirmButtonText: CONFIG.btnIntro
       }).then(()=>{
+        var audio = new Audio('sound/tick.mp3');
+        audio.play();
         Swal.fire({
             title: CONFIG.introTitle2,
             text: CONFIG.introDesc2,
@@ -42,6 +48,8 @@ function firstQuestion(){
             imageAlt: 'Custom image',
             confirmButtonText: CONFIG.btnIntro2
           }).then(()=>{
+            var audio = new Audio('sound/tick.mp3');
+            audio.play();
               Swal.fire({
                   title: CONFIG.introTitle3,
                   text: CONFIG.introDesc3,
@@ -52,7 +60,8 @@ function firstQuestion(){
                   imageAlt: 'Custom image',
                   confirmButtonText: CONFIG.btnIntro3
                 }) 
-                $('.content').show(200)
+                $('.content').show(200);
+                $('.group').show();
           }
           )
         })
